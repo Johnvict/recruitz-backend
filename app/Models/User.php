@@ -31,6 +31,13 @@ class User extends Model implements JWTSubject, AuthenticatableContract, Authori
     ];
 
     /**
+     * Model relationships that would be auto-loaded with every user data by default
+     */
+    protected $with = [
+        'profile'
+    ];
+
+    /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
@@ -56,4 +63,9 @@ class User extends Model implements JWTSubject, AuthenticatableContract, Authori
 	public function activationCode() {
 		return $this->hasOne(ActivationCode::class);
 	}
+
+    public function profile() {
+        return $this->hasOne(Profile::class);
+    }
 }
+

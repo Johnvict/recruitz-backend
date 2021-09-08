@@ -70,6 +70,20 @@ trait DataHelper
 	];
 
 
+    public static $profileCreateValidationRule = [
+		'title'             =>  'string|max:50',
+		'profile_summary'   =>  'string',
+		'address'           =>  'string|max:50',
+		'telephone'         =>  'string',
+		'mobile_phone'      =>  'string',
+		'portfolio_url'     =>  'string',
+		'github_url'        =>  'string',
+		'other_url'         =>  'string',
+		'linkedin_profile'  =>  'string',
+		'twitter_username'  =>  'string',
+		'skype_username'    =>  'string',
+	];
+
 
 	/**
 	 * ? To ensure a better object whose keys are the parameter keys as expected and values are the error message
