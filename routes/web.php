@@ -68,6 +68,12 @@ $router->group(['prefix' => 'api/v1'], function () use ($router) {
     $router->group(['prefix' => 'profile', 'middleware' => 'auth'], function () use ($router) {
         $router->post('/create', 'ProfileController@create');
         $router->post('/update', 'ProfileController@update');
+
+        // Profile Experience Routes
+        $router->group(['prefix' => 'experience', 'namespace' => 'Profiles'], function () use ($router) {
+            $router->post('/create', 'WorkExperienceController@createExperience');
+            $router->post('/update', 'WorkExperienceController@updateExperience');
+        });
     });
 
 

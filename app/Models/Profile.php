@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Profile extends Model {
+class Profile extends Model
+{
     protected $fillable = [
         'title',
         'profile_summary',
@@ -19,9 +20,20 @@ class Profile extends Model {
         'skype_username',
     ];
 
+    /**
+     * Model relationships that would be auto-loaded with every user data by default
+     */
+    protected $with = [
+        'work_experiences'
+    ];
 
-    public function user() {
+
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
+    public function work_experiences()
+    {
+        return $this->hasMany(WorkExperience::class)->orderBy('started_at', 'desc')->limit(10);
+    }
 }
-

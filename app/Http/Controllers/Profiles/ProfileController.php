@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Profiles;
 
+use App\Http\Controllers\Controller;
 use App\Services\DataHelper;
 use App\Services\ResponseFormat;
 use Exception;
@@ -10,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller {
     use DataHelper, ResponseFormat;
-    private static $user;
+    public static $user;
     public function __construct()
     {
         self::$user = Auth::user();
@@ -18,6 +19,7 @@ class ProfileController extends Controller {
 
     /**
      * Creates a new Profile Record for User - Job seeker
+     * @param Illuminate\Http\Request
      * @return Illuminate\Http\Response
      */
     public function create(Request $request) {
@@ -36,6 +38,8 @@ class ProfileController extends Controller {
 
     /**
      * Updates existing Profile Record for User - Job seeker
+     *
+     * @param Illuminate\Http\Request
      * @return Illuminate\Http\Response
      */
     public function update(Request $request) {

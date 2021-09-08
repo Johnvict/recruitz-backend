@@ -64,13 +64,11 @@ class User extends Model implements JWTSubject, AuthenticatableContract, Authori
 		return $this->hasOne(ActivationCode::class);
 	}
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @method
-     */
     public function profile() {
         return $this->hasOne(Profile::class);
+    }
+    public function work_experiences() {
+        return $this->hasMany(WorkExperience::class)->orderBy('start_at', 'desc');
     }
 }
 
