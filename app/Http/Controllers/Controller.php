@@ -16,13 +16,14 @@ class Controller extends BaseController
      *
      * @return Illuminate\Http\Response
      */
-    public static function manageError(Exception $error, $whereItHappened) {
+    public static function manageError(Exception $error, $whereItHappened)
+    {
         $errorMessage = $error->getMessage();
         Log::error("\n\n\nA new Error Just Occurred as follows:");
         Log::error("\n\n\n$whereItHappened");
         Log::error($errorMessage);
         if (env('APP_STAGE') == 'development') {
-           dd($errorMessage);
+            dd($errorMessage);
         }
 
         return self::returnSystemFailure();
