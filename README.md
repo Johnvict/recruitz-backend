@@ -32,15 +32,7 @@
     composer install
   </li>
   <li>
-    npm install && npm run dev
-  </li>
-  <li>
-  	Seed Jobs Table
-  	php artisan job:seed
-  </li>
-
-  <li>
-  	if images are not visible, delete storage folder from public and run
-  	php artisan storage:link
+  	Migrate and Seed Table
+  	php artisan migrate:fresh --seed
   </li>
 </ol>
